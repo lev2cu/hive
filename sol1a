@@ -1,11 +1,27 @@
 
 
-SELECT a.fname, a.lname, m.year
+SELECT a.fname, a.lname
 FROM casts c 
 INNER JOIN actor a
 ON c.id = a.id
 INNER JOIN movie m
 ON m.id = c.mid
 WHERE m.year BETWEEN 1850 AND 1950
-GROUP BY a.fname, a.lname, m.year 
+GROUP BY a.fname, a.lname 
 HAVING count(a.fname) < 2;
+
+
+#with unique years:
+
+SELECT a.fname, a.lname, m.year
+FROM casts c
+INNER JOIN actor a
+ON c.id = a.id
+INNER JOIN movie m
+ON m.id = c.mid
+WHERE m.year BETWEEN 1850 AND 1950
+GROUP BY a.fname, a.lname, m.year
+HAVING count(a.fname) < 2;
+
+
+
