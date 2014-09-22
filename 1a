@@ -1,0 +1,5 @@
+
+SELECT a.fname, a.lname 
+FROM actor a 
+INNER join casts c ON c.id = a.id
+INNER join movie m on m.id = c.mid
