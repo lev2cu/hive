@@ -1,0 +1,8 @@
+
+
+hive -e "create table actor (id int, fname string, lname string, gender string) row format delimited fields terminated by ',' location '/apps/hive/warehouse/imdb/actor'"
+
+hadoop dfs -cp /tmp/IMDBPerson.txt /apps/hive/warehouse/imdb/actor
+hadoop fs -ls /apps/hive/warehouse/imdb/actor
+
+hive -e "load data inpath '/apps/hive/warehouse/imdb/actor/IMDBPerson.txt' into table actor"
