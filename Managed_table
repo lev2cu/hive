@@ -1,0 +1,14 @@
+
+
+
+# create managed tables:
+hive -e "create table movie(id int, name string, year int, rank float) row format delimited fields terminated by'\t' location '/apps/hive/warehouse/imdb/movie'"
+
+#copy & load datafile to the table 
+hadoop dfs -cp /tmp/mov3.csv /apps/hive/warehouse/imdb/movie
+hadoop fs -ls /apps/hive/warehouse/imdb/movie
+hive -e "load data inpath '/apps/hive/warehouse/imdb/movie/mov3.csv' into table movie"
+
+hive> describe extended movie;
+hive> select * from movie where year = 2010;
+
