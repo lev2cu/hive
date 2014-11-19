@@ -1,0 +1,23 @@
+
+All movies released the same year as Shrek (2001).
+
+
+SELECT * from movie 
+WHERE name like '%Shrek%' and year = 2001
+ ; 
+
+
+
+
+SELECT m.name
+FROM movie m
+
+
+
+
+
+  WHERE (m1.name = 'Shrek ') AND (m2.year = m1.year) AND
+        (m2.rank > m1.rank);
+
+
+
